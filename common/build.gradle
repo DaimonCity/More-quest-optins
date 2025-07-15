@@ -1,0 +1,17 @@
+architectury {
+    common rootProject.enabled_platforms.split(',')
+}
+
+dependencies {
+    // We depend on Fabric Loader here to use the Fabric @Environment annotations,
+    // which get remapped to the correct annotations on each platform.
+    // Do NOT use other classes from Fabric Loader.
+    modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+
+    modApi "dev.architectury:architectury:$rootProject.architectury_api_version"
+
+    // modApi ("dev.ftb.mods:ftb-library-fabric:$rootProject.ftb_library_fabric") {exclude group "mezz.jei"}
+    modApi ("dev.ftb.mods:ftb-library-fabric:$rootProject.ftb_library_fabric") { transitive false }
+    modApi "dev.ftb.mods:ftb-quests-fabric:$rootProject.ftb_quests_fabric"
+    modApi "dev.ftb.mods:ftb-teams-fabric:$rootProject.ftb_teams_fabric"
+}
