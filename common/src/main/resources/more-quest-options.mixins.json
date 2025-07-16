@@ -6,6 +6,9 @@
   "client": [
   ],
   "mixins": [
+    "ItemTaskAccessor",
+    "QuestObjectBaseAccessor",
+    "TaskAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

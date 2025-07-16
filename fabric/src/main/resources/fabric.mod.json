@@ -33,5 +33,10 @@
   },
   "suggests": {
     "another-mod": "*"
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "dev/ftb/mods/ftbquests/quest/task": ["/common/src/main/java/net/daimon/moreQuestOptions/GetFilledTaskConfig.java"]
+    }
   }
 }
