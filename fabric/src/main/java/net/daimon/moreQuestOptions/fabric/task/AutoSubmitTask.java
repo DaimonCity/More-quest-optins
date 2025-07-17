@@ -9,7 +9,6 @@ import dev.ftb.mods.ftbquests.item.MissingItem;
 import dev.ftb.mods.ftbquests.quest.Quest;
 import dev.ftb.mods.ftbquests.quest.TeamData;
 import dev.ftb.mods.ftbquests.quest.task.ItemTask;
-import dev.ftb.mods.ftbquests.quest.task.Task;
 import dev.ftb.mods.ftbquests.quest.task.TaskType;
 import net.daimon.moreQuestOptions.mixin.ItemTaskAccessor;
 import net.daimon.moreQuestOptions.mixin.QuestObjectBaseAccessor;
@@ -37,6 +36,11 @@ public class AutoSubmitTask extends ItemTask {
 
     @Override
     public boolean submitItemsOnInventoryChange() {
+        return true;
+    }
+
+    @Override
+    public boolean consumesResources() {
         return true;
     }
 
@@ -92,7 +96,7 @@ public class AutoSubmitTask extends ItemTask {
                 boolean changed = false;
 
                 for (int i = 0; i < player.getInventory().items.size(); ++i) {
-                    ItemStack stack = (ItemStack) player.getInventory().items.get(i);
+                    ItemStack stack = player.getInventory().items.get(i);
                     ItemStack stack1 = this.insert(teamData, stack, false);
                     if (stack != stack1) {
                         changed = true;
